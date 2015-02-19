@@ -51,7 +51,7 @@ class EchoNest:
                 print "%s" % review
             # Sleep for API Limit
             time.sleep(15)
-            j = 5
+            j = 0
         return
 
 nest = EchoNest()
