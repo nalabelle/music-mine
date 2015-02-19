@@ -4,7 +4,8 @@ Data Mining
 Requirements: python, feedparser
 
 Copy config_example to config and stick your API key in
-run run.py [-c|-d]
 
--c gives you config settings to make sure they're read
--d gives you tons of debug output
+    ./run.py [-c|-d]
+
+  * -c gives you config settings to make sure they're read
+  * -d gives you tons of debug output
