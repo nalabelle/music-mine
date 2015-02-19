@@ -1,0 +1,19 @@
+[EchoNest]
+apikey:
+# Sleep between Echo Nest API calls
+sleep: 5
+VAstrings: ["Various Artists", "Soundtrack"]
+
+[Charts]
+# Options: Apple,Billboard
+charts = ["Apple", "Billboard"]
+# None, Display, File
+export = File
+format = {chartname}/{date}
+
+[Reviews]
+# Export Format
+# None, File
+export = None
+format = {artist} - {album}/{date}
+date = inline

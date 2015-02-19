@@ -53,6 +53,3 @@ class EchoNest:
             time.sleep(15)
             j = 0
         return
-
-nest = EchoNest()
-nest.run()
