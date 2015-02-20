@@ -54,5 +54,7 @@ docs/_build/
 target/
 
 # Our stuff
-charts/
+chart*/
+review*/
+config
 config_dev

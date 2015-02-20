@@ -15,5 +15,5 @@ format = {chartname}/{date}
 # Export Format
 # None, File
 export = None
-format = {artist} - {album}/{date}
+format = {artist}/{date}
 date = inline

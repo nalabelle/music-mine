@@ -11,6 +11,9 @@ class EchoNest:
     url = "http://developer.echonest.com/artist/%s/reviews.rss?api_key=%s"
     apiKey = ""
 
+    def __init__(self, key):
+        self.apiKey = key
+
     def getList(self, artist):
         try:
             url = self.url % (urllib2.quote(artist.replace(' ', '+'), safe="+"), self.apiKey)
