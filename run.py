@@ -75,12 +75,21 @@ class MusicMine:
     nest = EchoNest(self.config.get('EchoNest', 'apikey'))
     location = self.config.get('Reviews', 'export')
 
+    artistset = set()
+
     for item in chartitems:
       # skip Various Artists and Soundtracks because no good data
       if item['artist'] in json.loads(self.config.get('EchoNest', 'VAstrings')):
         continue;
 
-      revlist = nest.filter(item['artist'])
+      # this set should really be made above when we're creating the chart list.
+      # but this will allow us to use the item dicts without repeating searches at least.
+      if item['artist'] not in artistset:
+        artistset.add(item['artist'])
+      else:
+        continue;
+
+      revlist = nest.filter(u'%s' % item['artist'])
 
       if location == 'Display' or self.debug:
         pp = pprint.PrettyPrinter(indent=2)
@@ -116,6 +125,9 @@ class MusicMine:
           try:
             response = requests.get(item, verify=False)
           except requests.exceptions.SSLError, e:
+            print e
+            continue
+          except requests.exceptions.ConnectionError, e:
             print e
             continue
 

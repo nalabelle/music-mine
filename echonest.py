@@ -14,7 +14,8 @@ class EchoNest:
 
     def getList(self, artist):
         try:
-            url = self.url % (urllib2.quote(artist.replace(' ', '+'), safe="+"), self.apiKey)
+            #url = self.url % (urllib2.quote(artist.replace(' ', '+'), safe="+"), self.apiKey)
+            url = self.url % (artist.replace(' ', '+').encode('utf-8'), self.apiKey)
             print url
             data = feedparser.parse(url)
         except Exception, e:
