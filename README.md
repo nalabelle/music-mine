@@ -1,7 +1,11 @@
 # music-mine
 Data Mining
 
-Requirements: python, feedparser
+Requirements: 
+  * python
+  * feedparser
+  * requests
+  * beautifulsoup4
 
 Copy config_example to config and stick your API key in
 
