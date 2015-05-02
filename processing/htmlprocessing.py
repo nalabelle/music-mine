@@ -10,12 +10,13 @@ def getTextFromHTML(html):
   # remove script tags
   for s in soup.findAll('script'):
     s.extract()
-  print(soup.get_text())
+  #print(soup.get_text())
   return soup.get_text()
 
 if __name__ == "__main__":
   path = sys.argv[1]
   print "path: " + path
+  r = open("../sentresults.txt", 'w')
   for subdir, dirs, files in os.walk(path):
     for file in files:
       fileName, fileExtension = os.path.splitext(file)
@@ -26,5 +27,6 @@ if __name__ == "__main__":
       html = f.read()
       text = getTextFromHTML(html)
       pos, neg = sentiment.getSentiment(text)
-      print pos, neg
+      r.write('%s,%s,%s\n' % (fpath, pos, neg))
+      #print pos, neg
       f.close()
