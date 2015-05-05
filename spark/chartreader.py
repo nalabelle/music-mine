@@ -22,15 +22,4 @@ files = sc.wholeTextFiles('reviews/*/*.txt') \
         .map(lambda (x,y): (x, getTextFromHTML(y))) \
 	.map(lambda (x,y): (x, getSentiment(y)))
 
-print files.top(3)
 files.saveAsTextFile("senti.txt")
-
-'''
-counts = file.flatMap(lambda line: line.split()) \
-             .map(lambda word: (word, 1)) \
-             .reduceByKey(lambda a, b: a + b) \
-             .map(lambda (x,y): (y,x)) \
-             .sortByKey(False) \
-             .map(lambda (x,y): (y,x))
-counts.saveAsTextFile("output_spark")
-'''
